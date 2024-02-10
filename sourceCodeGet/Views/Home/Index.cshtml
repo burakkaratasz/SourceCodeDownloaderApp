@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Source Code Downloader</h1>
+
+@if (!string.IsNullOrWhiteSpace(ViewData["Error"] as string))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["Error"]
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewData["Message"] as string))
+{
+    <div class="alert alert-success" role="alert">
+        @ViewData["Message"]
+    </div>
+}
+
+<form method="post" asp-action="DownloadSourceCode" class="text-center mt-3">
+    <div class="form-group">
+        <label for="url">URL:</label>
+        <input type="text" class="form-control" id="url" name="url" style="width: 300px; margin: 0 auto;">
+    </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-danger">Download</button>
+    </div>
+</form>
